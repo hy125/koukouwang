@@ -1,0 +1,114 @@
+.main{
+    width: 1199px;
+    height: 592px;
+    background:url(/img/sh2.gif);
+    margin: 0 auto;
+    position: relative;
+    .login .login_con .form {
+        width: 483px;
+        height: 441px;
+        background: #fff;
+        position: absolute;
+        top:52px;
+        right: 102px;
+        .tou {
+            width: 432px;
+            border-bottom: 1px solid #EAEAEA;
+            font-size: 14px;
+            margin-left: 25px;
+            padding-bottom: 16px;
+            padding-top: 16px;
+            i{
+                margin-right: 15px;
+        }
+    }
+     .zhanghao{
+        padding-left: 22px;
+        width: 461px;
+        height: 32px;
+        margin-top: 36px;
+        span{
+            font-size: 14px;
+            width: 59px;
+            text-align: right;
+            padding-right: 20px;
+            line-height: 32px;
+        }
+        .input_text {
+            width: 219px;
+            height: 30px;
+            border: 1px solid #D0D0D0;
+            font-size: 12px;
+            color: #707070;
+            text-indent: 5px;
+            line-height: 30px;
+        }
+    }
+    .mima{
+        padding-left: 22px;
+        width: 461px;
+        height: 32px;
+        margin-top: 20px;
+        span{
+            font-size: 14px;
+            width: 59px;
+            text-align: right;
+            padding-right: 20px;
+            line-height: 32px;
+        }
+        .input_password {
+            width: 219px;
+            height: 30px;
+            border: 1px solid #D0D0D0;
+            font-size: 12px;
+            color: #707070;
+            text-indent: 5px;
+            line-height: 30px;
+        }
+    }
+    .text {
+        float: left;
+        text-decoration: underline;
+        height: 32px;
+        line-height: 32px;
+        padding-left: 281px;
+        margin-top: 14px;
+       
+
+    }
+    .text{
+        a {
+            color: #414141;
+            font-size: 13px;
+        }
+    }
+    .login_button {
+        position: absolute;
+        bottom: 162px;
+        left: 124px;
+        .btn {
+            cursor: pointer;
+            width: 134px;
+            height: 32px;
+            color: #a48e5c;
+            font-size: 14px;
+            text-align: center;
+            display: block;
+            border: 1px solid #C6C6C6;
+            cursor: pointer;
+            background: #fff;
+            line-height: 30px;
+        }
+    }
+    .denglu_link {
+        position: absolute;
+        bottom: 84px;
+        right: 47px;
+        font-size: 12px;
+        a {
+            color: #f93000;
+            text-decoration: underline;
+        }
+    }
+}
+}

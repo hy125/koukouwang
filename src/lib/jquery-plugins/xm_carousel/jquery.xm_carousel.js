@@ -14,7 +14,7 @@
 		this.nextIndex = 1; // 即将显示图片的索引
 		this.points = null; // 所有轮播图片对应的小点
 		this.timer = null; // 轮播切换时使用到的计时器
-
+		this.color = ["#6bb4f0","#e9f2ed","#374045","#41badc","#e8e3dc","#fff",];
 		this.createDom(); // 创建DOM结构
 		this.registerEventListener(); // 注册事件监听
 	}
@@ -37,8 +37,7 @@
 							<div class="pages">
 								${points}
 							</div>
-							<div class="prev">&lt;</div>
-							<div class="next">&gt;</div>`;
+							`;
 			// 将生成的HTML结构放置到容器中
 			this.container.html(html);
 			// 设置元素CSS样式
@@ -62,10 +61,10 @@
 			// .pages
 			$(".pages", this.container).css({
 				position: "absolute",
-				width: "100%",
+				width: "15%",
 				height: 30,
-				background: "#000",
-				bottom: 0
+				bottom: "1%",
+				left:"42%"
 			});
 			// 所有小圆点
 			this.points = $("i", this.container);
@@ -75,18 +74,18 @@
 				height: 20,
 				margin: 5,
 				borderRadius: 10,
-				background: "#fff"
+				background: "#999999"
 			}).first().css({
-				background:"#f00"
+				background:"#9f8529"
 			});
 			// 向前/后
 			$(".prev,.next", this.container).css({
 				width: 50,
 				height: 100,
-				background: "#000",
+				background: "#9f8529",
 				lineHeight: "100px",
 				textAlign: "center",
-				color: "#fff",
+				color: "#999999",
 				position: "absolute",
 				top:0,
 				bottom: 0,
@@ -101,19 +100,24 @@
 		},
 		// 图片轮播切换
 		move : function(){
+			// console.log($(".banner"));
+			var that = this;
+			$(".banner").css({background:this.color[that.nextIndex]});
+			
 			// 当前图片淡出
-			$(this.lis[this.currentIndex]).fadeOut();
+			$(this.lis[this.currentIndex]).fadeOut(0);
 			// 即将显示图片淡入
-			$(this.lis[this.nextIndex]).fadeIn();
+			$(this.lis[this.nextIndex]).fadeIn(0);
 			// 小点样式变化
-			$(this.points[this.currentIndex]).css({background:"#fff"});
-			$(this.points[this.nextIndex]).css({background:"#f00"});
+			$(this.points[this.currentIndex]).css({background:"#999"});
+			$(this.points[this.nextIndex]).css({background:"#9f8529"});
 			// 修改索引
 			this.currentIndex = this.nextIndex;
 			this.nextIndex++;
-			if (this.nextIndex >= this.len)
+			if (this.nextIndex >= this.len||this.nextIndex >= this.color)
 				this.nextIndex = 0;
 		},
+		
 		// 自动轮播
 		autoPlay : function(){
 			this.timer = setInterval(()=>{
@@ -122,12 +126,6 @@
 		},
 		// 注册事件监听
 		registerEventListener : function(){
-			// 鼠标移入/移出轮播图范围，停止/重启自动轮播效果
-			this.container.hover(()=>{
-				clearInterval(this.timer);
-			}, ()=>{
-				this.autoPlay();
-			});
 			// 每个小点绑定事件
 			let that = this;
 			$(this.points).click(function(){

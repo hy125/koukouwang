@@ -4,9 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>登陆</title>
+    <link rel="stylesheet" href="/css/sheader.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/login.css">
 </head>
 <body>
+    <div class="sheader"></div>
+    <div class="main">
+        <!-- 登录区域开始 -->
+	<div id='login_out'>
+            <div class='login'>
+                <div class='login_con'>									
+                    <form action="" method='post'  class='form'>							
+                        <div class='center'>
+                            <p class='tou'><span class='tou_pic'><i class="iconfont icon-wo"></i></span>用户登录</p>
+                            <!-- 账号 -->
+                            <p class='zhanghao'><span>账号</span><label for=""><input type="text" id="username" name="login_name"  class='input_text' onblur="if(this.value=='') {this.value='邮箱/用户名/手机号';}" onfocus="if(this.value=='邮箱/用户名/手机号') this.value='';" value="邮箱/用户名/手机号"  autocomplete="off" tabindex="0"  /></label></p>
+                            <p class='dui' style='display: none;'></p>
     
+                            <!-- 密码 -->
+                            <p class='mima'><span>密码</span><input  class='input_password' value=''  autocomplete="off" name="password"  type="password"  maxlength="20" id='pwd'/></p>				
+                            <p class='dui1' style='display: none;'></p>
+                                                                
+                            <p class='text'><a href="http://www.oomall.com/user/lookpwd">忘记密码？</a></p>
+                            <p class='login_button'><input type='submit' class='btn' value='登录'  /></p>
+                            <!-- 点击登录按钮事件 -->
+                            <p class='denglu_link'>还不是抠抠网会员？<a href="/html/register.html" >免费注册</a></p>
+                            
+                            <div style="display:none;">
+                            <p class='line'></p>
+                            <div class='div_btn'><p class='p_zi'>使用合作网站账号登录抠抠网：</p><a href="" class='qq'><a href="" class='weibo'><a href="" class='zhifu'></a></div>
+                            </div>
+                        </div>													
+                    </form>										
+                    
+                </div>
+    
+                
+            </div>
+        </div>
+    
+    </div>
+    <div class="footer"></div>
+    <script src="/lib/requirejs/require.js" data-main="/js/login"></script>
 </body>
-</html>
+</html>   

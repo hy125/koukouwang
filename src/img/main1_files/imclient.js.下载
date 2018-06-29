@@ -1,0 +1,88 @@
+var link = document.createElement("link");
+link.rel = "stylesheet";
+link.type = "text/css";
+link.href = '/im/layui/css/layui.css';
+document.getElementsByTagName("head")[0].appendChild(link);
+
+var js = document.createElement("script");
+js.setAttribute("type","text/javascript");
+js.setAttribute("src","/im/layui/layui.js");
+document.getElementsByTagName("head")[0].appendChild(js);
+
+var socketUrl = 'ws://test.im.oomall.com:8283';
+var apiUrl = 'http://test.im.oomall.com/api';
+var token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NzA2MTAwMSwidXNlcl9pZCI6NzA2MTAsInVzZXJfdHlwZSI6MSwibmlja19uYW1lIjoiMTg4NTk1MTg3MzIiLCJpYXQiOjE1MjUxNjEyNzUsImV4cCI6MTUyNjk3NTY3NSwibmJmIjoxNTI2OTc1Njc1fQ.X2MuP0sN-UQWhszGbe_tpJJbBx1cCcyDUlLiU9kVYgQ';
+var uid = 0;
+var room_id = 10001;
+var headers = {'Authorization':'Bearer '+token};
+
+$('#BizQQWPA').click(function () {
+    layui.use('layim',function(layim){
+
+        var socket = new WebSocket(socketUrl);
+
+        socket.onopen = function () {
+            console.log('Socket OK');
+        };
+        socket.onmessage = function(res) {
+            res = JSON.parse(res.data);
+            switch (res.op) {
+                case 'connect':
+                    var post = {
+                        op:'bind',
+                        data:{
+                            token:token
+                        }
+                    };
+                    socket.send(JSON.stringify(post));
+                    break;
+                case 'bind':
+                    uid = res.data.uid;
+                    break;
+                case 'message':
+                    layim.getMessage({
+                        username:'客服金凤',
+                        avatar:'http://www.oomall.com/static/images/images/logo0.png',
+                        id:'20702',
+                        type:'friend',
+                        content:res.data.content,
+                        cid:res.data.id,
+                        mine:false,
+                        fromid:res.data.author.id,
+                        timestamp:res.data.created_at * 1000,
+                    });
+                    break;
+                default:
+                    break;
+            }
+        };
+
+
+        layim.config({
+            brief:true,
+            init:{
+                url:'json/ljj_init.json',
+                type:'get',
+                data:{}
+            }
+        }).chat({
+            name:'客服金凤',
+            type:'friend',
+            avatar:'http://www.oomall.com/static/images/images/logo0.png',
+            id:20702,
+            group:false,
+        }).on('sendMessage',function(res){
+            $.ajax({
+                type:'POST',
+                url:apiUrl+'/messages',
+                dataType:'json',
+                headers:headers,
+                data:{room_id:room_id,type:1,content:res.mine.content},
+                success:function(data){
+                }
+            });
+        });
+    }); 
+    return false;
+});
+

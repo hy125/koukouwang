@@ -4,9 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>注册</title>
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/register.css">
 </head>
 <body>
-    
+    <div class="sheader"></div>
+    <div class="main">
+        <!-- register_con -->
+<div id='register_con_box'>
+        <div class='register_con'>
+          <div class='register_con_l'>
+            <form action="" method="post" class='form' onsubmit="return false"  >
+            <p class='tou'><span class='tou_pic'><i class="iconfont icon-wo"></i></span>用户登录</p>
+            <p class="yonghuming"> <span>用户名</span> <input type="text" name="username" placeholder="请输入3-10位数字与字母的组合" class="username"></p>
+            <p class="username_info" ></p>
+            <p class="mima"><span>密码</span> <input type="password" name="password" placeholder="请输入以字母开头" class="pwd"><br></p>
+            <p class="hint"></p>
+            <p class="register_button"><input type="submit" value="注册" class="regist"></p>
+            <p class="jump"></p>
+            </form>
+          </div>
+          <div class='register_con_r'>
+            <div class='box'>
+              <p><span>已有抠抠网账号？</span><a href="/html/login.html" id='denglu_btn'>登录</a></p>
+              <div style="display:none">
+                  <p class='p_zi'>使用合作网站账号登录抠抠网：</p>
+                  <div class='div_btn'><a href="" class='qq'><a href="" class='weibo'><a href="" class='zhifu'></a></div>
+              </div>
+            </div>
+          </div>
+      
+        </div>
+      </div>
+      
+      
+    </div>
+    <div class="footer"></div>
+    <script src="/lib/requirejs/require.js" data-main="/js/register"></script>
 </body>
 </html>

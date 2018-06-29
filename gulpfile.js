@@ -29,22 +29,32 @@ gulp.task("copy-lib", function(){
 	gulp.src("src/lib/**/*.*")
 		.pipe(gulp.dest("dist/lib"))
 });
-// 复制图片到 dist 下
+// 复制 php 目录到 dist 下
+gulp.task("copy-php", function(){
+	gulp.src("src/**/*.*")
+		.pipe(gulp.dest("dist/php"))
+});
+//复制img到dist下
 gulp.task("copy-img", function(){
 	gulp.src("src/img/**/*.*")
 		.pipe(gulp.dest("dist/img"))
+});
+// 复制icon到 dist 下
+gulp.task("copy-font", function(){
+	gulp.src("src/font/**/*.*")
+		.pipe(gulp.dest("dist/font"))
 });
 // 复制假数据到 dist 下
 gulp.task("copy-mock", function(){
 	gulp.src("src/mock/**/*.*")
 		.pipe(gulp.dest("dist/mock"))
 });
-gulp.task("copy", ["copy-lib", "copy-img", "copy-mock"]);
+gulp.task("copy", ["copy-lib", "copy-img", "copy-mock","copy-font","copy-php"]);
 
 // 编译 *.scss 文件为 *.css 文件 
 gulp.task("sass", function(){
 	gulp.src("src/sass/*.scss")
-		.pipe(sass({outputStyle:"compressed"}))
+		.pipe(sass({outputStyle:"expanded"}))
 		.pipe(gulp.dest("dist/css"))
 		.pipe(connect.reload());
 });

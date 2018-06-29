@@ -4,9 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>购物车</title>
+    <link rel="stylesheet" href="/css/cart.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/font/iconfont.css">
 </head>
 <body>
-    
+    <div class="sheader"></div>
+    <div class="content">
+            <div class="content_box">
+              <div class="men cart cart_empty hide">
+                 <p style="font-size:15px;">亲，您的购物车为空</p>
+                 <p>请前往首页进行购物~<a  style="display:inline-block; width:80px;
+                 height:40px;text-align:Center;line-height:40px;background:#2abc6b;color:white;border-radius:6px;"href="/index.html">首页</a></p>
+              </div>
+              <div class="cart_not_empty hide row">
+                  <table class="table table-bordered table-hover">
+                      <thead class="thead">
+                          <tr>
+                              <th class="c1" ><label><input type="checkbox" class="ck_all">全选</label></th>
+                              <th class="c2">图片</th>
+                              <th class="c3">标题</th>
+                              <th class="c4">价格</th>
+                              <th class="c5">数量</th>
+                              <th class="c6">小计</th>
+                              <th class="c7">操作</th>
+                          </tr>
+                      </thead>
+                      <tbody >
+          
+                      </tbody>
+                      <tfoot>
+                          <tr>
+                              <td>合计</td>
+                              <td colspan="6" class="total">0.00</td>
+                          </tr>
+                      </tfoot>
+                  </table>
+                  <a class="btn btn-danger" href="confirm.html">去结算</a>
+                  <script type="text/html" id="cart_temp">
+                      {{each products prod}}
+                      <tr data-id="{{prod.id}}">
+                          <td class="tb1"><input type="checkbox" class="ck_prod"></td>
+                          <td class="tb2"><img src="{{prod.img}}"></td>
+                          <td class="tb3">{{prod.desc}}</td>
+                          <td class="tb4">{{prod.price}}</td>
+                          <td class="tb5">
+                              <div class="input-group">
+                                <span class="input-group-addon minus">-</span>
+                                <input type="text" class="form-control text-center amount" value="{{prod.amount}}">
+                                <span class="input-group-addon add">+</span>
+                              </div>
+                          </td>
+                          <td class="sub_total" class="tb6">{{(prod.price * prod.amount).toFixed(2)}}</td>
+                          <td class="tb7"><a href="javascript:void(0);" class="del_link">删除</a></td>
+                      </tr>
+                      {{/each}}
+                  </script>
+              </div>
+          </div>
+          </div>
+    <div class="footer"></div>
+    <script src="/lib/requirejs/require.js" data-main="/js/cart"></script>
 </body>
 </html>
