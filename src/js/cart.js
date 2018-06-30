@@ -1,5 +1,5 @@
 require(["config"], function(){
-	require(["jquery","template","xm_carousel","load","cookie","fly"], function($,template){
+	require(["jquery","template","load","cookie"], function($,template){
 	$(function(){
 	/* 读取并渲染购物车 */
 	$.cookie.json = true;
@@ -38,7 +38,7 @@ require(["config"], function(){
 	// 判断某 id 商品在数组中是否存在，
 	// 存在则返回其在数组中的下标，-1表示不存在
 	function exist(id, array) {
-		for (let i = 0, len = array.length; i < len; i++) {
+		for (let i = 0, len = array.length; i < len; i++) {                                                                                                                                                                                                                                                                                      
 			if (array[i].id == id)
 				return i;
 		}
@@ -98,11 +98,12 @@ require(["config"], function(){
 
 	function calcTotal() {
 		let sum = 0;
+
 		$(".ck_prod:checked").each(function(index, element){
 			
-			sum += Number($(element).parents("tr").find(".sub_total").text());
+			sum += Number($(element).parents().siblings(".sub_total").text());
 		});
-		$('.total').text(sum.toFixed(2));
+		$('.totalmoney').text(sum.toFixed(2));
 	}
 });
 	});

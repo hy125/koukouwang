@@ -3,20 +3,20 @@ require(["config"], function(){
         // 加载显示热卖商品信息
 	$.getJSON("/mock/list.json", function(data){
 		// 渲染模板
-		const html = template("hot_rank_temp", {list : data.res_body.list});
+		const html = template("hot_sale_temp", {list : data.res_body.list});
 		// 显示
 		$(".main").html(html);
 	});
 	$(".main").on("click", ".shop", function(){
 		// 获取当前选购商品信息
 		const currProd = {
-			id : $(this).find(".id").text(),
-			desc: $(this).find(".desc").text(),
-			price : $(this).find(".price").text().slice(1),
-			img : $(this).find("img").attr("src"),
+			id : $(this).parent().siblings("dt").find(".id").text(),
+			title: $(this).parent().find(".title").text(),
+			price : $(this).parent().parent().find(".price").text().slice(1),
+			img : $(this).parent().siblings("dt").find("img").attr("src"),
 			amount : 1
 		};
-	
+		console.log($(this).parent().parent().find(".price").text().slice(1));
 		// // cookie插件配置
 		$.cookie.json = true;
 		// // 先从 cookie 中读取已有保存的购物车数组

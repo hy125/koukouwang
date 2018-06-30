@@ -1,6 +1,135 @@
-.content{
-    min-height: 500px;
-    width: 1000px;
-    margin: 0 auto;
-    border: 1px solid;
+ 
+.logo_wrap{
+    width: 100%;
+    height: 80px;
+    border-bottom: 1px solid rgb(170, 168, 168);
+    .logo{
+        width: 1000px;
+        height: 80px;
+        margin: 0 auto;
+        padding-top: 20px;
+        img{
+            float: left;
+        }
+        h4{
+            float: left;
+            margin-left: 20px;
+            font-size: 20px;
+            font-weight: normal;
+            color: orangered;
+        }
+    }
+}
+
+
+.content_wrap{
+    width: 100%;
+    background: #f0f0f0;
+    padding-top: 20px;
+    .content{
+        width: 1000px;
+        min-height: 470px;
+        margin:0 auto;
+        background: white;
+        padding: 20px 20px;
+        h2{
+            font-weight: normal;
+            color: pink;
+            font-size: 20px;
+            margin-bottom: 20px;
+            a{
+                color:orangered;
+                text-decoration: underline;
+                font-size: 14px;
+            }
+        }
+        .cart_not_empty{
+            min-height: 800px;
+            table{
+                border-collapse:collapse;
+            }
+            table,th, td{
+                border: 1px solid #cfcfcf;
+            }
+            table{
+               .col1{
+                   width: 100px;
+               }
+               .col2{
+                width: 250px;
+                }
+                .col3{
+                    width: 240px;
+                }
+                .col4{
+                    width: 110px;
+                }
+                .col5{
+                    width: 125px;
+                }
+                .col6{
+                    width: 125px;
+                }
+                .col7{
+                    width: 100px;
+                }
+                .col8{
+                    width:100px;
+                }
+            }
+            table tr td{
+                text-align: center;
+                font-size: 14px;
+
+                img{
+                    width: 100px;
+                    height: 100px;
+                }
+            }
+            table tr td:nth-of-type(3){
+                text-align: left;
+            }
+            .input-group{
+                width: 106px;
+                height: 26px;
+                margin: 0 auto;
+                .input-group-addon{
+                    display: inline-block;
+                    float: left;
+                    width: 24px;
+                    height: 24px;
+                    border: 1px solid #ccc;
+                    background-color: #eee;
+                    text-align: center;
+                    font-size: 18px;
+                    color: #777;
+                    cursor: pointer;
+                }
+                .form-control{
+                    width: 50px;
+                    float: left;
+                    height: 20px;
+                    text-align: center;
+                    line-height: 20px;
+                    outline: none;
+                }
+            }
+            table tfoot tr{
+                width: 959px;
+                height: 40px;
+                line-height: 20px;
+                .btn{
+                    width: 204px;
+                    height: 46px;
+                    display: inline-block;
+                    background-color: #ff666b;
+                    color: white;
+                    font-size: 24px;
+                    text-align: center;
+                    line-height: 42px;
+                }
+
+            }
+        }
+    }
 }

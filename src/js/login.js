@@ -1,7 +1,7 @@
 require(["config"], function(){
     require(["load","jquery"]),function($){
         //阻止表单事件的默认提交
-		$(".reg_form").submit(function(){
+		$(".form").submit(function(){
 			return false;
 	});	
 
@@ -28,9 +28,7 @@ require(["config"], function(){
 				$(".regist").click(function(){
 					console.log("aaa");
 					$.post("http://localhost/login.php", $(".reg_form").serialize(), function(data){
-						console.log(data.res_code);
-						console.log("bbb");
-						console.log(data);
+						
 						if (data.res_code == 0){
 							console.log(data.res_body);
 							setTimeout(function(){

@@ -40,16 +40,16 @@
       </p>
     </div>
     <div class="main">
-        <script type="text/html" id="hot_rank_temp">
-            {{each list pro}}
+        <script type="text/html" id="hot_sale_temp">
+            {{each list prod}}
                     <dl>
                         <dt class="scrollLoading">
-                        <span class="id" style="display:none;">{{pro.id}}</span>        
-                            <img src="{{pro.img}}"></dt>
+                        <span class="id" style="display:none;">{{prod.id}}</span>        
+                            <img src="{{prod.img}}"></dt>
                         <dd>
-                            <p class="title" style="font-size:13px">{{pro.title}}</p>
-                            <p class="desc" ><a href="/html/detail.html">{{pro.desc}}</a></p>
-                            <p class="price">{{pro.price}} <button class="shop"><i class="iconfont icon-gouwuche1"></i> 购物车</button></p>
+                            <p class="title" style="font-size:13px">{{prod.title}}</p>
+                            <p class="desc" ><a href="/html/detail.html">{{prod.desc}}</a></p>
+                            <p class="price">{{prod.price}} </p><button class="shop"><i class="iconfont icon-gouwuche1"></i> 购物车</button>
                            
                         </dd>
                     </dl>
